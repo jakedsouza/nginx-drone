@@ -117,6 +117,7 @@ fi
 
    echo "letsencrypt certonly "${letscmd}" \
     --standalone \
+		-n \
     "${SERVER}" \
     --email "${EMAIL}" --agree-tos \
     --expand " > /etc/nginx/lets
@@ -135,6 +136,7 @@ echo "${DOMAIN}" > /etc/letsencrypt/san_list
   # Certificate reissue
   letsencrypt certonly --force-renewal \
     --webroot \
+		-n \
     -w /etc/letsencrypt/webrootauth/ \
     ${letscmd} \
     "${SERVER}" \
